@@ -6,6 +6,8 @@ import java.awt.Container;
 
 
 public class MainVindue extends JFrame {
+
+        private AndetPanel andetPanel;
     public MainVindue(String titel){
         super(titel);
 
@@ -13,11 +15,14 @@ public class MainVindue extends JFrame {
         //Opsætter layout manager
         setLayout(new BorderLayout());
 
-        //Opretter
+        //Opretter swing komponenter
         JTextField Tekst = new JTextField();
+        andetPanel = new AndetPanel();
 
+        // Sætter komponenterne til panelerne
         Container c = getContentPane();
         c.add(Tekst,BorderLayout.CENTER);
+        c.add(andetPanel,BorderLayout.WEST);
     }
 
 
