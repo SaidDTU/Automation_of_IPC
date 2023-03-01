@@ -15,7 +15,8 @@ public class MainVindue extends JFrame {
         //Opsætter layout manager
         setLayout(new BorderLayout());
 
-        //Opretter swing komponenter
+
+        //Opretter swing komponenterr
         JTextField Tekst = new JTextField();
         andetPanel = new AndetPanel();
 
