@@ -3,6 +3,7 @@ package IPC;
 import java.awt.BorderLayout;
 import javax.swing.*;
 import java.awt.Container;
+import java.awt.event.*;
 
 
 public class MainVindue extends JFrame {
@@ -24,6 +25,7 @@ public class MainVindue extends JFrame {
         Container c = getContentPane();
         c.add(Tekst,BorderLayout.CENTER);
         c.add(andetPanel,BorderLayout.WEST);
+
     }
 
 

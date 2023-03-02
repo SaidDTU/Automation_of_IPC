@@ -9,7 +9,7 @@ public class Applikation {
             @Override
             public void run() {
                 JFrame vindue = new MainVindue("IPC");
-                vindue.setSize(500,500);
+                vindue.setSize(1500,700);
                 vindue.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vindue.setVisible(true);
             }
