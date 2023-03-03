@@ -18,18 +18,21 @@ public class MainVindue extends JFrame {
 
 
         //Opretter swing komponenterr
-        JTextField Tekst = new JTextField();
+        final JTextField TekstOM = new JTextField();
         andetPanel = new AndetPanel();
 
         andetPanel.addListener( new Listener(){
             public void detailEventOccurred(EventHåndtering event){
+                String text = event.getText();
+
+                TekstOM.add(text);
 
             }
         });
 
         // Sætter komponenterne til panelerne
         Container c = getContentPane();
-        c.add(Tekst,BorderLayout.CENTER);
+        c.add(TekstOM,BorderLayout.CENTER);
         c.add(andetPanel,BorderLayout.WEST);
 
     }

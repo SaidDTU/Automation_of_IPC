@@ -1,12 +1,20 @@
 package IPC;
 
 import javax.swing.*;
+import javax.swing.event.EventListenerList;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class AndetPanel extends JPanel {
     public JButton StartKnap, PrøveKnap, BatchKnap;
     public JTextField ColiTekst, InitTekst, BegTekst, ØvrTekst, BatTekst;
     public JLabel ColiLab, InitLab, BegLab, ØvrLab, BatLabel;
+
+    private EventListenerList ell = new EventListenerList();
 
     public void knapper(){
         StartKnap = new JButton("Start Prøveudtagelse");
@@ -30,6 +38,9 @@ public class AndetPanel extends JPanel {
     }
     public AndetPanel(){
 
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+
         knapper();
         tekst();
         overskrift();
@@ -37,6 +48,22 @@ public class AndetPanel extends JPanel {
         Dimension size = getPreferredSize();
         size.width = 700;
         setPreferredSize(size);
+
+        PrøveKnap.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String init = InitTekst.getText();
+                String coli = ColiTekst.getText();
+
+
+                String tekst = init + date + "PP1";
+
+                fireDetailEvent(new EventHåndtering(this, tekst));
+
+
+            }
+        });
+
 
         setLayout(new GridBagLayout());
 
@@ -130,14 +157,27 @@ public class AndetPanel extends JPanel {
 
 
     }
+    public void fireDetailEvent(EventHåndtering event) {
+        Object[] listeners = ell.getListenerList();
 
-    public void addListener( Listener listener {
+        for(int i=0; i< listeners.length; i +=2){
+            if(listeners[i] == Listener.class){
+                ((Listener)listeners[i+1]).detailEventOccurred(event);
+            }
+        }
 
 
     }
 
-    public void RemoveListener( Listener listener {
 
+    public void addListener( Listener listener) {
+        ell.add(Listener.class, listener);
+
+
+    }
+
+    public void RemoveListener( Listener listener) {
+        ell.remove(Listener.class, listener);
 
     }
 }
