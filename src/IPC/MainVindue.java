@@ -21,6 +21,12 @@ public class MainVindue extends JFrame {
         JTextField Tekst = new JTextField();
         andetPanel = new AndetPanel();
 
+        andetPanel.addListener( new Listener(){
+            public void detailEventOccurred(EventHåndtering event){
+
+            }
+        });
+
         // Sætter komponenterne til panelerne
         Container c = getContentPane();
         c.add(Tekst,BorderLayout.CENTER);

@@ -130,4 +130,14 @@ public class AndetPanel extends JPanel {
 
 
     }
+
+    public void addListener( Listener listener {
+
+
+    }
+
+    public void RemoveListener( Listener listener {
+
+
+    }
 }
