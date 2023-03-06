@@ -18,14 +18,15 @@ public class MainVindue extends JFrame {
 
 
         //Opretter swing komponenterr
-        final JTextField TekstOM = new JTextField();
+        final JTextArea TekstOM = new JTextArea();
         andetPanel = new AndetPanel();
 
-        andetPanel.addListener( new Listener(){
-            public void detailEventOccurred(EventHåndtering event){
+        andetPanel.addListener( new DetailListener() {
+            @Override
+            public void detailEventOccurred(EventHåndtering event) {
                 String text = event.getText();
 
-                TekstOM.add(text);
+                TekstOM.append(text);
 
             }
         });
